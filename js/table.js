@@ -10,7 +10,7 @@ async function render(){
         <th class="text-nowrap">${country.name.official}</th>
         <td class=" text-end">${num.format(country.area)}</td>
         <td class=" text-end">${num.format(country.population)}</td>
-        <td class=" text-start">${country.capital}</td>
+        <td class=" text-start text-nowrap">${country.capital}</td>
         </tr>`;
        
     }
