@@ -6,13 +6,12 @@ async function render(){
         for(const country of countries){
         countryName+=
                 `<div class="col" >
-                    <div class=" card h-100">
-                        <img src="${country.flags.png}" class="card-img-top">
-                        <a class="card-block stretched-link text-decoration-none" href="${country.maps.openStreetMaps}" target="_blank"></a>
-                        <div class="card-body">
-                            <h5 class="card-title">${country.name.official}</h5>
-                            <p class="card-text">${country.capital}</p>
-                        </div>
+                    <div class=" card h-100"">
+                    <a href="${country.maps.openStreetMaps}" target="_blank"><img src="${country.flags.png}" class="card-img-top" alt="flags"></a>   
+                            <div class="card-body">
+                                <h5 class="card-title">${country.name.official}</h5>
+                                <p class="card-text">${country.capital}</p>
+                            </div>
                     </div>
                 </div>`;
 }
