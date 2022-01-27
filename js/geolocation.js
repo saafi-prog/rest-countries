@@ -18,7 +18,7 @@ async function render() {
   const longitude = capital.capitalInfo.latlng[1];
   let countryMap = document.querySelector('#frame');
   countryMap.src = `https://www.google.com/maps/embed/v1/view?key=AIzaSyDYSeSmAnW7Adm1d7umO_v9ej5xbNnE5yI
-&center=${latitude},${longitude}&zoom=10 &language=en`;
+&center=${latitude},${longitude}&zoom=10 &language=en `;
 
 
 
