@@ -2,7 +2,14 @@
 async function render() {
   let response = await fetch('https://restcountries.com/v3.1/region/europe?fiels=cca2');
   const countries = await response.json();
-  const countryName = countries.map(country => `<option value="${country.cca2}"${country.cca2 == "FR" ? 'selected' : ''}>${country.name.official}</option>`);
+  let capitalCca2 ="FR";
+  if(document.location.search !== ""){
+    let params = new URLSearchParams(document.location.search);
+    let capitalName = params.get("cap");
+    const selectedCountry = countries.find(country => country.capital == capitalName);
+    capitalCca2 = selectedCountry.cca2;
+  }
+  const countryName = countries.map(country => `<option value="${country.cca2}"${country.cca2 == capitalCca2 ? 'selected' : ''}>${country.name.official}</option>`);
   document.querySelector("#countrySelect").innerHTML = countryName;
   /*
   for(const country of countries){
@@ -12,7 +19,7 @@ async function render() {
   }}*/
 
 
-  response = await fetch('https://restcountries.com/v3.1/alpha/fr?fields=capitalInfo');
+  response = await fetch(`https://restcountries.com/v3.1/alpha/${capitalCca2}?fields=capitalInfo`);
   let capital = await response.json();
   const latitude= capital.capitalInfo.latlng[0];
   const longitude = capital.capitalInfo.latlng[1];

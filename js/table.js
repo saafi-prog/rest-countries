@@ -10,13 +10,13 @@ async function render(){
         <th class="text-nowrap">${country.name.official}</th>
         <td class=" text-end">${num.format(country.area)}</td>
         <td class=" text-end">${num.format(country.population)}</td>
-        <td class=" text-start text-nowrap">${country.capital}</td>
-        </tr>`;
-       
+        <td class=" text-start text-nowrap"> <a href="geolocation.html?cap=${country.capital}"> ${country.capital}</a> </td>
+        </tr>`
     }
-    document.querySelector("#data").innerHTML = countryName ;
     
+    document.querySelector("#data").innerHTML = countryName ;
 }
+    
 window.addEventListener('load', render());
 
 
